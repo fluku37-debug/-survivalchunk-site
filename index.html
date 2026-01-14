@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>SurvivalChunk</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">
+    <img src="logo.png" class="logo" alt="SurvivalChunk Logo">
+  </a>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+
+  <div id="menu" class="menu">
+    <a onclick="showHome()" id="btn-home">Home</a>
+    <a onclick="showRules()" id="btn-rules">Regeln</a>
+    <a onclick="showJugend()" id="btn-jugend">Jugendschutz</a>
+    <a onclick="showDiscord()" id="btn-discord">Discord</a>
+    <a onclick="showIP()" id="btn-ip">Server IP</a>
+    <a onclick="showStatus()" id="btn-status">Serverstatus</a>
+    <a onclick="showShop()" id="btn-shop">Shop</a>
+  </div>
+</header>
+
+<main id="content">
+  <div class="welcome-box no-bg">
+    <h1>Herzlich willkommen auf <span>SurvivalChunk</span></h1>
+  </div>
+</main>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("open");
+}
+
+function resetButtons() {
+  document.querySelectorAll(".menu a").forEach(btn => btn.classList.remove("active"));
+}
+
+function showHome() {
+  resetButtons();
+  document.getElementById("btn-home").classList.add("active");
+  document.getElementById("content").innerHTML = `
+    <div class='welcome-box no-bg'>
+      <h1>Herzlich willkommen auf <span>SurvivalChunk</span></h1>
+    </div>
+  `;
+}
+
+function showShop() {
+  resetButtons();
+  document.getElementById("btn-shop").classList.add("active");
+  document.getElementById("content").innerHTML = `
+    <div class='info-box'>
+      <h2>🛒 Der Shop kommt bald!</h2>
+    </div>
+  `;
+}
+
+function showRules() {
+  resetButtons();
+  document.getElementById("btn-rules").classList.add("active");
+  document.getElementById("content").innerHTML = `
+    <div class='rules-box'>
+      <h2>📜 Allgemeine Regeln</h2>
+      <p>👉🏻 1. Die Survivalchunk ist ein Ort der Gemeinschaft. Ein höflicher, respektvoller und freundlicher Umgang ist Pflicht.</p>
+      <p>👉🏻 2. Diskriminierung jeglicher Art ist streng verboten und führt zu einem permanenten Ausschluss.</p>
+      <p>👉🏻 3. Inhalte mit Gewalt oder Waffen sind nicht erlaubt.</p>
+      <p>👉🏻 4. Missbrauch des Support-Systems führt zu einer Supportsperre.</p>
+      <p>👉🏻 5. Werbung oder Werbelinks sind verboten.</p>
+      <p>👉🏻 6. Verstöße müssen gemeldet werden.</p>
+      <p>👉🏻 7. Das Regelwerk ist jederzeit bindend.</p>
+      <p>👉🏻 8. Ausnutzen von Grauzonen wird bestraft.</p>
+      <p>👉🏻 9. Verstöße gegen deutsches Recht werden bestraft.</p>
+
+      <h2>⛏ Minecraft Regeln</h2>
+      <p>👉🏻 1. Griefing ist verboten.</p>
+      <p>👉🏻 2. Betrug gegenüber Spielern ist untersagt.</p>
+      <p>👉🏻 3. Modifikationen mit unfairen Vorteilen (X-Ray, Hacks) sind verboten.</p>
+      <p>👉🏻 4. Indirektes Töten (Lava, Fallen) wird bestraft.</p>
+      <p>👉🏻 5. Chunkloader sind nicht erlaubt.</p>
+      <p>👉🏻 6. Mutwillige Landschaftszerstörung ist verboten.</p>
+      <p>👉🏻 7. Casinos oder Glücksspiel sind verboten.</p>
+      <p>👉🏻 8. AFK-Farmen ist erlaubt.</p>
+      <p>👉🏻 9. Spielen mit Alt-Accounts nach Bann ist erlaubt.</p>
+    </div>
+  `;
+}
+
+function showJugend() {
+  resetButtons();
+  document.getElementById("btn-jugend").classList.add("active");
+  document.getElementById("content").innerHTML = `
+    <div class='info-box'>
+      <h2>🔒 Jugendschutz</h2>
+      <p>Informationen folgen bald.</p>
+    </div>
+  `;
+}
+
+function showDiscord() {
+  resetButtons();
+  document.getElementById("btn-discord").classList.add("active");
+  document.getElementById("content").innerHTML = `
+    <div class='info-box'>
+      <h2>💬 Discord</h2>
+      <p>Trete unserem Discord-Server bei:</p>
+      <a href="https://discord.gg/8CY4DkYWPb" target="_blank" class="discord-button">Discord beitreten</a>
+    </div>
+  `;
+}
+
+function showIP() {
+  resetButtons();
+  document.getElementById("btn-ip").classList.add("active");
+  document.getElementById("content").innerHTML = `
+    <div class='info-box'>
+      <h2>🌍 Server IP</h2>
+      <div class="copy-container">
+        <span id="server-ip">survivalchunk.de</span>
+        <button class="copy-btn" onclick="copyIP()">📋</button>
+      </div>
+ <p> Der Serverläuft auf den Versionen 1.21.7- 1.21.11<P/>
+      <p id="copy-msg" class="copy-msg">IP kopiert!</p>
+    </div>
+   
+  `;
+}
+
+function copyIP() {
+  const ip = document.getElementById("server-ip").innerText;
+  navigator.clipboard.writeText(ip);
+  const msg = document.getElementById("copy-msg");
+  msg.style.opacity = 1;
+  setTimeout(() => {
+    msg.style.opacity = 0;
+  }, 1500);
+}
+
+function showStatus() {
+  resetButtons();
+  document.getElementById("btn-status").classList.add("active");
+  document.getElementById("content").innerHTML = `
+    <div class='info-box'>
+      <h2>📡 Serverstatus</h2>
+      <p id="status-text">Lade Status...</p>
+    </div>
+  `;
+  checkServerStatus();
+}
+
+function checkServerStatus() {
+  fetch("https://api.mcsrvstat.us/2/survivalchunk.de")
+    .then(response => response.json())
+    .then(data => {
+      const statusText = document.getElementById("status-text");
+      if (data.online) {
+        statusText.innerHTML = `🟢 Online – ${data.players.online} Spieler`;
+        statusText.style.color = "#00ff88";
+      } else {
+        statusText.innerHTML = "🔴 Offline";
+        statusText.style.color = "#ff4444";
+      }
+    })
+    .catch(() => {
+      document.getElementById("status-text").innerHTML = "⚠️ Fehler beim Abrufen";
+    });
+}
+</script>
+
+</body>
+</html>
