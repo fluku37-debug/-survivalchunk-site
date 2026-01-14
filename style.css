@@ -1,0 +1,173 @@
+/* Grundlayout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("home.png") no-repeat center center fixed;
+  background-size: cover;
+  color: #eaffea;
+  backdrop-filter: brightness(0.6);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  background: #0f4d0f;
+  padding: 10px 20px;
+  position: relative;
+}
+
+/* LOGO */
+.logo {
+  height: 60px;
+  border-radius: 12px;
+  border: 3px solid #2ecc71;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* MENU BUTTON */
+.menu-btn {
+  margin-left: auto;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: #eaffea;
+  cursor: pointer;
+}
+
+/* DROPDOWN-MENÜ */
+.menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  right: 20px;
+  top: 70px;
+  background: #145c14;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.menu.open {
+  display: flex;
+}
+
+.menu a {
+  padding: 8px 12px;
+  color: #eaffea;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.menu a:hover {
+  background: #1f7a1f;
+}
+
+.menu a.active {
+  background: #0c3c0c;
+}
+
+/* BOXEN ALLGEMEIN */
+.welcome-box,
+.rules-box,
+.info-box {
+  margin: 40px auto;
+  width: 70%;
+  background: rgba(0, 64, 0, 0.7);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+/* HOME OHNE GRÜNEN HINTERGRUND */
+.welcome-box.no-bg {
+  background: none;
+}
+
+.welcome-box h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.welcome-box span {
+  color: #aaffaa;
+}
+
+/* REGELBOX */
+.rules-box h2 {
+  margin-top: 0;
+  color: #aaffaa;
+}
+
+/* INFO-BOX */
+.info-box {
+  text-align: center;
+}
+
+/* DISCORD-BUTTON */
+.discord-button {
+  display: inline-block;
+  background-color: #5865F2; /* Discord-Blau */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.2s;
+  margin-top: 15px;
+}
+
+.discord-button:hover {
+  background-color: #4752C4;
+  transform: scale(1.05);
+}
+
+/* SERVER-IP KOPIERFUNKTION */
+.copy-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.copy-btn {
+  background: #2ecc71;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.copy-btn:hover {
+  background: #27ae60;
+}
+
+.copy-msg {
+  opacity: 0;
+  text-align: center;
+  margin-top: 10px;
+  color: #aaffaa;
+  transition: opacity 0.3s;
+}
+
+/* OPTIONAL: VIDEO-SECTION */
+#video-section {
+  margin-top: 100px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+#video-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#scroll-video {
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 128, 0, 0.5);
+}
